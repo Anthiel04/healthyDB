@@ -1,5 +1,8 @@
 # healthyDB
 
+## Important
+The first column is the one that is processed
+
 ## Purpose and Scope
 
 This document provides a high-level introduction to the **healthyDB** system, explaining its purpose as an Excel data cleaning and sanitization tool. It covers the system's architecture, core components, and processing modes to help users understand how healthyDB transforms messy Excel data into clean, standardized datasets.
