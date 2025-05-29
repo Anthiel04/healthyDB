@@ -24,9 +24,9 @@ def main():
         print(f"Aplicando saneamiento fuerte.")
         try:
             print(f"Procesando el archivo: {file_path}")
-            excel = cure.import_excel_file(file_path)
-            processed = cure.hard_clean_excel_file(excel)
-            cure.save_excel_file(processed, file_path)
+            cure.save_excel_file(
+                cure.hard_clean_excel_file(cure.import_excel_file(file_path)), file_path
+            )
             elapsed = time.time()
 
             print(f"Done in {start - elapsed} seconds")
@@ -40,9 +40,9 @@ def main():
         print("Aplicando saneamiento básico.")
         try:
             print(f"Procesando el archivo: {file_path}")
-            excel = cure.import_excel_file(file_path)
-            processed = cure.clean_excel_file(excel)
-            cure.save_excel_file(processed, file_path)
+            cure.save_excel_file(
+                cure.clean_excel_file(cure.import_excel_file(file_path)), file_path
+            )
             elapsed = time.time()
 
             print(f"Done in {start - elapsed} seconds")
@@ -51,8 +51,6 @@ def main():
             print(f"El archivo {file_path} no fue encontrado.")
         except Exception as e:
             print(f"Ocurrió un error: {e}")
-
-    # Intenta abrir y leer el archivo
 
 
 if __name__ == "__main__":

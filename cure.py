@@ -57,6 +57,8 @@ def clean_excel_file(df):
 def hard_clean_excel_file(df):
     df = clean_excel_file(df)
 
+    total_filas = len(df)
+
     columna_a_filtrar = df.columns[0] if df.columns.size > 0 else None
     if columna_a_filtrar is None:
         return "No hay columnas para filtrar."
@@ -77,7 +79,9 @@ def hard_clean_excel_file(df):
 
     # Eliminar columna auxiliar
     df_filtrado = df_filtrado.drop(columns=["col_sin_tilde"])
+    filas_filtradas = len(df_filtrado)
 
+    print(f"Total de filas afectadas: {total_filas-filas_filtradas}")
     return df_filtrado
 
 
