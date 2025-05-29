@@ -1,4 +1,3 @@
-```markdown
 # healthyDB
 
 ## Purpose and Scope
@@ -46,10 +45,6 @@ The following diagram shows the core system components and their relationships u
   - `eliminar_tildes()`
   - `load_words_to_remove()`
 
-### Sources
-- `main.py` lines 6–59
-- `cure.py` lines 1–99
-
 ## Processing Pipeline
 
 This diagram illustrates the data flow through the system using actual function names and file operations:
@@ -86,10 +81,6 @@ cure.save_excel_file(processed, file_path)
     ↓
 ./result/healthy_*.xlsx
 ```
-
-### Sources
-- `main.py` lines 23–54
-- `cure.py` lines 42–82
 
 ## Core Components
 
