@@ -1,57 +1,16 @@
+import os
 import sys
-import time
-import cure
+from menu import Menu as m
 
 
 def main():
-    # Verifica si se ha proporcionado un argumento
-    if len(sys.argv) < 2:
-        print("Uso: python main.py <path> profile")
-        sys.exit(1)
+    file_path = input("Provide the file path: ")
 
-    # Obtiene el path del archivo desde los argumentos
-    file_path = sys.argv[1]
-
-    if len(sys.argv) < 3:
-        profile = None
+    if os.path.isfile(file_path):
+        menu = m(file_path)
+        menu.main()
     else:
-        # Obtiene el perfil desde los argumentos
-        profile = sys.argv[2]
-
-    start = time.time()
-
-    if profile == "hard":
-        print(f"Aplicando saneamiento fuerte.")
-        try:
-            print(f"Procesando el archivo: {file_path}")
-            cure.save_excel_file(
-                cure.hard_clean_excel_file(cure.import_excel_file(file_path)), file_path
-            )
-            elapsed = time.time()
-
-            print(f"Done in {start - elapsed} seconds")
-
-        except FileNotFoundError:
-            print(f"El archivo {file_path} no fue encontrado.")
-        except Exception as e:
-            print(f"Ocurrió un error: {e}")
-            sys.exit(1)
-    else:
-        print("Aplicando saneamiento básico.")
-        try:
-            print(f"Procesando el archivo: {file_path}")
-            cure.save_excel_file(
-                cure.clean_excel_file(cure.import_excel_file(file_path)), file_path
-            )
-            elapsed = time.time()
-
-            print(f"Done in {start - elapsed} seconds")
-
-        except FileNotFoundError:
-            print(f"El archivo {file_path} no fue encontrado.")
-        except Exception as e:
-            print(f"Ocurrió un error: {e}")
-
+        print("File not found")
 
 if __name__ == "__main__":
     main()
